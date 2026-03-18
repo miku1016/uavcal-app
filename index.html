@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAVCAL Webアプリ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>UAVCAL 計算ツール</h1>
+
+        <div class="input-section">
+            <label for="model">機種:</label>
+            <select id="model">
+                <!-- JavaScriptでオプションがここに追加されます -->
+            </select>
+        </div>
+
+        <div class="input-section">
+            <label for="altitude">高度 m:</label>
+            <input type="number" id="altitude" value="40" min="1">
+        </div>
+
+        <div class="input-section">
+            <label for="overlap">オーバーラップ %:</label>
+            <input type="number" id="overlap" value="80" min="0" max="100">
+        </div>
+
+        <div class="input-section">
+            <label for="sidelap">サイドラップ %:</label>
+            <input type="number" id="sidelap" value="70" min="0" max="100">
+        </div>
+
+        <div class="input-section">
+            <label for="interval">撮影間隔 s:</label>
+            <input type="number" id="interval" value="5" min="0.1" step="0.1">
+        </div>
+
+        <button id="calculateButton">計算</button>
+
+        <h2>計算結果</h2>
+        <div class="results-section">
+            <p>飛行速度: <span id="flightSpeed">0</span> m/s</p>
+            <p>飛行ルート間隔: <span id="flightRouteSpacing">0</span> m</p>
+            <p>水平サイズ: <span id="horizontalSize">0</span> m</p>
+            <p>垂直サイズ: <span id="verticalSize">0</span> m</p>
+            <p>地上画素サイズ: <span id="gsd">0</span> cm/pix</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

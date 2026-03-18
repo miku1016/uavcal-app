@@ -1,0 +1,49 @@
+Model
+承知いたしました。計算結果の数値の小数点以下2桁目の位置が縦に揃うようにCSSを調整します。
+
+これは主に、数値部分 (`<span>` タグ) の幅を固定するか、右寄せにして表示することで実現できます。今回は、右寄せにしつつ、少し間隔を空けることで見やすくする方法を試します。
+
+### 1. CSS (style.css) の変更
+
+以下のCSSルールを `style.css` に追加または修正してください。
+
+```css
+/* 既存のCSSに以下を追加または変更 */
+
+.results-section p {
+    font-size: 17px;
+    margin-bottom: 10px;
+    display: flex; /* Flexboxを使って左右に配置 */
+    justify-content: space-between; /* 要素を左右に分ける */
+    align-items: baseline; /* テキストのベースラインを揃える */
+    padding-right: 5px; /* 右端に少しパディングを追加して揃えやすくする */
+}
+
+.results-section span {
+    font-weight: bold;
+    color: #0056b3;
+    text-align: right; /* テキストを右寄せにする */
+    min-width: 80px; /* 結果の表示エリアの最小幅を設定（調整可能） */
+    display: inline-block; /* min-widthを適用するために必要 */
+}
+
+/* スマートフォン向けの調整（既存のものに上書きまたは追加） */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+        margin: 10px;
+    }
+    h1 {
+        font-size: 24px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    button {
+        font-size: 16px;
+        padding: 10px;
+    }
+    .results-section span {
+        min-width: 70px; /* モバイル向けに調整することも可能 */
+    }
+}
