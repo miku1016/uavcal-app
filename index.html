@@ -13,8 +13,7 @@
         <div class="input-section">
             <label for="model">機種:</label>
             <select id="model">
-                <!-- JavaScriptでオプションがここに追加されます -->
-            </select>
+                </select>
         </div>
 
         <div class="input-section">
@@ -41,11 +40,31 @@
 
         <h2>計算結果</h2>
         <div class="results-section">
-            <p>飛行速度: <span id="flightSpeed">0</span> m/s</p>
-            <p>飛行ルート間隔: <span id="flightRouteSpacing">0</span> m</p>
-            <p>水平サイズ: <span id="horizontalSize">0</span> m</p>
-            <p>垂直サイズ: <span id="verticalSize">0</span> m</p>
-            <p>地上画素サイズ: <span id="gsd">0</span> cm/pix</p>
+            <div class="result-row">
+                <span class="result-label">飛行速度:</span>
+                <span id="flightSpeed" class="result-value">0.00</span>
+                <span class="result-unit">m/s</span>
+            </div>
+            <div class="result-row">
+                <span class="result-label">飛行ルート間隔:</span>
+                <span id="flightRouteSpacing" class="result-value">0.00</span>
+                <span class="result-unit">m</span>
+            </div>
+            <div class="result-row">
+                <span class="result-label">水平サイズ:</span>
+                <span id="horizontalSize" class="result-value">0.00</span>
+                <span class="result-unit">m</span>
+            </div>
+            <div class="result-row">
+                <span class="result-label">垂直サイズ:</span>
+                <span id="verticalSize" class="result-value">0.00</span>
+                <span class="result-unit">m</span>
+            </div>
+            <div class="result-row">
+                <span class="result-label">地上画素サイズ:</span>
+                <span id="gsd" class="result-value">0.00</span>
+                <span class="result-unit">cm/pix</span>
+            </div>
         </div>
     </div>
 

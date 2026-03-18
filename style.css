@@ -1,20 +1,35 @@
-/* 既存のCSSに以下を追加または変更 */
-
-.results-section p {
-    font-size: 17px;
-    margin-bottom: 10px;
-    display: flex; /* Flexboxを使って左右に配置 */
-    justify-content: space-between; /* 要素を左右に分ける */
-    align-items: baseline; /* テキストのベースラインを揃える */
-    padding-right: 5px; /* 右端に少しパディングを追加して揃えやすくする */
+/* --- 計算結果セクションのレイアウト --- */
+.results-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* 行間の余白 */
+    padding: 10px 0;
 }
 
-.results-section span {
+.result-row {
+    display: flex;
+    align-items: baseline;
+    font-size: 17px;
+}
+
+.result-label {
+    flex: 1; /* 左側に寄せて、余った幅をすべて埋める */
+    text-align: left;
+}
+
+.result-value {
     font-weight: bold;
     color: #0056b3;
-    text-align: right; /* テキストを右寄せにする */
-    min-width: 80px; /* 結果の表示エリアの最小幅を設定（調整可能） */
-    display: inline-block; /* min-widthを適用するために必要 */
+    width: 80px; /* 数値エリアの幅を固定 */
+    text-align: right; /* 右寄せにして小数点を揃える */
+    font-variant-numeric: tabular-nums; /* 数字の幅を等幅にする（ガタつき防止） */
+}
+
+.result-unit {
+    width: 70px; /* 単位エリアの幅を固定（文字数が違っても数値を押し出さない） */
+    text-align: left;
+    padding-left: 10px; /* 数値との間の余白 */
+    color: #555;
 }
 
 /* スマートフォン向けの調整（既存のものに上書きまたは追加） */
@@ -33,7 +48,13 @@
         font-size: 16px;
         padding: 10px;
     }
-    .results-section span {
-        min-width: 70px; /* モバイル向けに調整することも可能 */
+    .result-row {
+        font-size: 15px; /* モバイルでは少し文字を小さく */
+    }
+    .result-value {
+        width: 70px;
+    }
+    .result-unit {
+        width: 60px;
     }
 }

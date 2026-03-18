@@ -22,19 +22,19 @@ document.addEventListener('DOMContentLoaded', () => {
             verticalSensorSize: 7.4,  // mm
             focalLength: 7           // mm (焦点距離と仮定)
         },
-        "DJI Mavic 3 (4:3)": { // 例として別の機種を追加
+        "DJI Mavic 3 (4:3)": { 
             horizontalPixels: 5280,
             verticalPixels: 3956,
-            horizontalSensorSize: 13.2, // mm (Mavic 3の4/3インチセンサーの約)
-            verticalSensorSize: 9.9,  // mm
-            focalLength: 24          // mm (Mavic 3の広角レンズ換算焦点距離)
+            horizontalSensorSize: 13.2, 
+            verticalSensorSize: 9.9,  
+            focalLength: 24          
         },
-        "Phantom 4 Pro (3:2)": { // 例としてさらに別の機種を追加
+        "Phantom 4 Pro (3:2)": { 
             horizontalPixels: 5472,
             verticalPixels: 3648,
-            horizontalSensorSize: 13.2, // mm (1インチセンサーの約)
-            verticalSensorSize: 8.8,  // mm
-            focalLength: 8.8          // mm (Phantom 4 Proの焦点距離)
+            horizontalSensorSize: 13.2, 
+            verticalSensorSize: 8.8,  
+            focalLength: 8.8          
         }
     };
 
@@ -60,27 +60,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!data || isNaN(altitude) || isNaN(overlap) || isNaN(sidelap) || isNaN(interval) || altitude <= 0) {
             alert("全ての項目を正しく入力してください。");
-            // 入力が不正な場合は結果をクリア
-            flightSpeedSpan.textContent = '0';
-            flightRouteSpacingSpan.textContent = '0';
-            horizontalSizeSpan.textContent = '0';
-            verticalSizeSpan.textContent = '0';
-            gsdSpan.textContent = '0';
+            // 入力が不正な場合は結果をクリア（小数点の位置を揃えるため 0.00 に設定）
+            flightSpeedSpan.textContent = '0.00';
+            flightRouteSpacingSpan.textContent = '0.00';
+            horizontalSizeSpan.textContent = '0.00';
+            verticalSizeSpan.textContent = '0.00';
+            gsdSpan.textContent = '0.00';
             return;
         }
 
         const { horizontalPixels, verticalPixels, horizontalSensorSize, verticalSensorSize, focalLength } = data;
 
         // 地上画素サイズ (GSD) 計算 (cm/pix)
-        const gsdHorizontal_m_per_pix = (horizontalSensorSize / 1000) * altitude / (focalLength / 1000) / horizontalPixels; // m/pix
-        // const gsdVertical_m_per_pix = (verticalSensorSize / 1000) * altitude / (focalLength / 1000) / verticalPixels;     // m/pix
-        
-        const gsd_cm_per_pix = gsdHorizontal_m_per_pix * 100; // cm/pix
+        const gsdHorizontal_m_per_pix = (horizontalSensorSize / 1000) * altitude / (focalLength / 1000) / horizontalPixels; 
+        const gsd_cm_per_pix = gsdHorizontal_m_per_pix * 100; 
         
         // 地上での水平・垂直撮影範囲 (FOV) 計算 (m)
         const horizontalFov_m = gsdHorizontal_m_per_pix * horizontalPixels;
-        // 垂直FOVは垂直GSDを使うべきですが、今回は水平GSDを基準にしているため、一旦水平GSDから垂直FOVを計算します。
-        // 正確には垂直GSDを計算し、それを使うべきです。
         const verticalFov_m = (verticalSensorSize / 1000) * altitude / (focalLength / 1000); 
 
         // 飛行速度 (m/s)
@@ -106,7 +102,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // 機種選択、入力値変更時にリアルタイムで更新
     modelSelect.addEventListener('change', calculateUAVParameters);
     altitudeInput.addEventListener('input', calculateUAVParameters);
-    overlapInput.addEventListener('input', calculateUavParameters);
+    // 【修正】calculateUavParameters -> calculateUAVParameters のタイポを修正
+    overlapInput.addEventListener('input', calculateUAVParameters); 
     sidelapInput.addEventListener('input', calculateUAVParameters);
     intervalInput.addEventListener('input', calculateUAVParameters);
 
