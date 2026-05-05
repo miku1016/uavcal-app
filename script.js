@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
             verticalPixels: 4000,
             horizontalSensorSize: 13.2, 
             verticalSensorSize: 8.8,  
-            focalLength: 8.8          
+            focalLength: 9.0          
         },
           "MavicPro": { 
             horizontalPixels: 4000,
