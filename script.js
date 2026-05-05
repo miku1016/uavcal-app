@@ -22,6 +22,13 @@ document.addEventListener('DOMContentLoaded', () => {
             verticalSensorSize: 7.4,  // mm
             focalLength: 7           // mm (焦点距離と仮定)
         },
+        "Mini4 pro 1200(4:3)": {
+            horizontalPixels: 4032,
+            verticalPixels: 3024,
+            horizontalSensorSize: 9.9, // mm
+            verticalSensorSize: 7.4,  // mm
+            focalLength: 7           // mm (焦点距離と仮定)
+        },        
         "DJI Mavic 3 (4:3)": { 
             horizontalPixels: 5280,
             verticalPixels: 3956,
@@ -29,13 +36,20 @@ document.addEventListener('DOMContentLoaded', () => {
             verticalSensorSize: 9.9,  
             focalLength: 24          
         },
-        "Phantom 4 Pro (3:2)": { 
+        "Phantom 4 Pro": { 
             horizontalPixels: 5472,
             verticalPixels: 3648,
             horizontalSensorSize: 13.2, 
             verticalSensorSize: 8.8,  
             focalLength: 8.8          
-        }
+        },
+          "MavicPro": { 
+            horizontalPixels: 4000,
+            verticalPixels: 3000,
+            horizontalSensorSize: 6.2, 
+            verticalSensorSize: 4.7,  
+            focalLength: 5.0          
+        }      
     };
 
     // プルダウンメニューに機種オプションを動的に追加する関数
