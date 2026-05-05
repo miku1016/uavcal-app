@@ -29,13 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
             verticalSensorSize: 7.4,  // mm
             focalLength: 7           // mm (焦点距離と仮定)
         },        
-        "DJI Mavic 3 (4:3)": { 
-            horizontalPixels: 5280,
-            verticalPixels: 3956,
-            horizontalSensorSize: 13.2, 
-            verticalSensorSize: 9.9,  
-            focalLength: 24          
-        },
         "Phantom 4 Pro": { 
             horizontalPixels: 5472,
             verticalPixels: 3648,
