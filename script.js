@@ -30,8 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
             focalLength: 7           // mm (焦点距離と仮定)
         },        
         "Phantom 4 Pro": { 
-            horizontalPixels: 5472,
-            verticalPixels: 3648,
+            horizontalPixels: 5000,
+            verticalPixels: 4000,
             horizontalSensorSize: 13.2, 
             verticalSensorSize: 8.8,  
             focalLength: 8.8          
