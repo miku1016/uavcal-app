@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const flightSpeed = (verticalFov_m * (1 - overlap)) / interval;
 
         // 飛行ルート間隔 (m)
-        const flightRouteSpacing = vhorizontalFov_m * (1 - sidelap);
+        const flightRouteSpacing = horizontalFov_m * (1 - sidelap);
 
         // 結果をDOMに表示
         flightSpeedSpan.textContent = flightSpeed.toFixed(2);
